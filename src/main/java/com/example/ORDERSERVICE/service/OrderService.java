@@ -64,7 +64,7 @@ public class OrderService {
 
         String currentStatus = existingOrder.get().getStatus();
         if (currentStatus.equals("CANCELLED") || currentStatus.equals("DELIVERED")) {
-            return;
+            throw new Exception("CANNOT UPDATE ORDER STATUS");
         }
 
         if (!isValidOrderStatus(orderStatus.getStatus())) {
